@@ -1,0 +1,17 @@
+.stockListContainer {
+  list-style: none;
+}
+
+.stockItemContainer {
+  background-color: #141515;
+  margin: 0.3rem;
+  padding: 0.7rem 0.3rem;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+}
+
+.change {
+  color: #6ff586;
+}
