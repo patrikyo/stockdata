@@ -1,0 +1,12 @@
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#triangleIcon {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(195, 195, 0);
+}
