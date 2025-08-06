@@ -1,6 +1,8 @@
 import Stock from "@/app/models/interfaces/stock.interface";
 import StockListProp from "@/app/models/interfaces/stockListProp.interface";
 import styles from "./StockList.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
   return (
     <ul className={styles.stockListContainer}>
@@ -9,9 +11,12 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
           <li className={styles.stockItemContainer} key={ele.name}>
             {ele.name}
             {follow ? (
-              <button>Follow</button>
+              <button className={styles.followBtnContainer}>
+                <FontAwesomeIcon icon={faPlus} id={styles.plusIcon} />
+                <span>Follow</span>
+              </button>
             ) : (
-              <span className={styles.change}>{ele.change}%</span>
+              <span className={styles.change}>{ele.change}</span>
             )}
           </li>
         );
