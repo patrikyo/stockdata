@@ -4,6 +4,7 @@ import StockList from "@/app/components/StockList/StockList";
 import ErrorDisplay from "@/app/components/ErrorDisplay/ErrorDisplay";
 import Stock from "@/app/models/interfaces/stock.interface";
 import styles from "./page.module.css";
+import PageLink from "@/app/components/PageLink/PageLink";
 
 const ExploreStocks = () => {
   const [names, setNames] = useState<Stock[]>([]);
@@ -37,6 +38,7 @@ const ExploreStocks = () => {
       ) : (
         <StockList stockList={names} follow={true} />
       )}
+      <PageLink href="/" label="Tillbaka till Mina aktier" />
     </div>
   );
 };
