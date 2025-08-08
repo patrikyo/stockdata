@@ -19,7 +19,7 @@ const useStocks = (tickers: string[]) => {
           return fetch(`http://127.0.0.1:5000/api/stock/${ticker}`).then(
             (response) => {
               if (!response.ok) {
-                throw new Error(`Fel vid hämtning av aktie: ${ticker}`);
+                throw new Error(`Fel vid hämtning av aktier`);
               }
               return response.json();
             }
@@ -31,7 +31,7 @@ const useStocks = (tickers: string[]) => {
           setLoading(false);
         })
         .catch((error) => {
-          setError(error.message || "Ett fel uppstod vid hämtning av aktier.");
+          setError(error.message);
           setLoading(false);
         });
     };

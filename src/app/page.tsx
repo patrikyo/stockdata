@@ -6,6 +6,7 @@ import StockList from "./components/StockList/StockList";
 import PageLink from "./components/PageLink/PageLink";
 import ErrorDisplay from "./components/ErrorDisplay/ErrorDisplay";
 import useStocks from "./hooks/useStocks";
+import Spinner from "./components/Spinner/Spinner";
 
 const FOLLOW_KEY = "followedStocks";
 
@@ -31,18 +32,19 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {loading && <p>Laddar......</p>}
       <h1>Mina aktier</h1>
-
-      {error && <ErrorDisplay msg={error} />}
-
-      {tickers.length === 0 ? (
-        <p>Du följer inga aktier ännu.</p>
-      ) : (
-        <StockList stockList={stocks} follow={false} />
+      <div className={styles.spinnerContainer}>{loading && <Spinner />}</div>
+      {!loading && (
+        <>
+          {error && <ErrorDisplay msg={error} />}
+          {tickers.length === 0 ? (
+            <p>Du följer inga aktier ännu.</p>
+          ) : (
+            <StockList stockList={stocks} follow={false} />
+          )}
+          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
+        </>
       )}
-
-      <PageLink href="/explore-stocks" label="Utforska fler aktier" />
     </div>
   );
 }

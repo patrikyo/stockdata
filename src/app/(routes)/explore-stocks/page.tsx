@@ -5,10 +5,12 @@ import ErrorDisplay from "@/app/components/ErrorDisplay/ErrorDisplay";
 import Stock from "@/app/models/interfaces/stock.interface";
 import styles from "./page.module.css";
 import PageLink from "@/app/components/PageLink/PageLink";
+import Spinner from "@/app/components/Spinner/Spinner";
 
 const ExploreStocks = () => {
   const [names, setNames] = useState<Stock[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchStockNames = () => {
@@ -20,10 +22,17 @@ const ExploreStocks = () => {
             );
           }
           setError(null);
+
           return response.json();
         })
-        .then((res) => setNames(res))
-        .catch((err) => setError(err.message));
+        .then((res) => {
+          setNames(res);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setLoading(false);
+        });
     };
 
     fetchStockNames();
@@ -32,13 +41,21 @@ const ExploreStocks = () => {
   return (
     <div className={styles.container}>
       <h1>Utforska aktier</h1>
-
-      {error ? (
-        <ErrorDisplay msg={error} />
-      ) : (
-        <StockList stockList={names} follow={true} />
+      {loading && (
+        <div className={styles.spinnerContainer}>
+          <Spinner />
+        </div>
       )}
-      <PageLink href="/" label="Tillbaka till Mina aktier" />
+      {!loading && (
+        <div>
+          {error ? (
+            <ErrorDisplay msg={error} />
+          ) : (
+            <StockList stockList={names} follow={true} />
+          )}
+          <PageLink href="/" label="Tillbaka till Mina aktier" />
+        </div>
+      )}
     </div>
   );
 };
