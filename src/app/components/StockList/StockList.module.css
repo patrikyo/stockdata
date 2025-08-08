@@ -2,34 +2,8 @@
   list-style: none;
 }
 
-.stockItemContainer {
-  background-color: #141515;
-  margin: 0.3rem;
-  padding: 0.7rem 0.7rem;
-  border-radius: 0.3rem;
-  font-weight: 500;
+.stockLinkContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.change {
-  color: #6ff586;
-}
-
-.followBtnContainer {
-  width: 4.5rem;
-  display: flex;
-  justify-content: space-around;
-  background-color: #141515;
-  color: #fff;
-  padding: 0.3rem;
-  align-items: center;
-  border: 1.5px solid #2f3131;
-  border-radius: 0.2rem;
-}
-
-#plusIcon {
-  width: 0.5rem;
-  height: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }

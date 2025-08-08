@@ -4,6 +4,9 @@ import styles from "./StockList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import PageLink from "../PageLink/PageLink";
+import FollowStockItem from "../FollowStockItem/FollowStockItem";
 
 const LOCAL_STORAGE_KEY = "followedStocks";
 
@@ -49,21 +52,21 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
         const isFollowed = followedStocks.includes(ele.name);
 
         return (
-          <li className={styles.stockItemContainer} key={ele.name}>
-            {ele.name}
+          <li key={ele.name}>
             {follow ? (
-              <button
-                className={styles.followBtnContainer}
-                onClick={() => toggleFollow(ele.name)}
-              >
-                <FontAwesomeIcon
-                  icon={isFollowed ? faMinus : faPlus}
-                  id={styles.plusIcon}
-                />
-                <span>{isFollowed ? "Unfollow" : "Follow"}</span>
-              </button>
+              <FollowStockItem
+                name={ele.name}
+                isFollowed={isFollowed}
+                onToggle={toggleFollow}
+              />
             ) : (
-              <span className={styles.change}>{ele.change}</span>
+              <div className={styles.stockLinkContainer}>
+                <PageLink
+                  href="/stock-detail"
+                  label={ele.name}
+                  change={ele.change}
+                />
+              </div>
             )}
           </li>
         );
