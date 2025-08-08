@@ -7,6 +7,7 @@ const useStocks = (tickers: string[]) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    setLoading(true);
     if (tickers.length === 0) {
       setStocks([]);
       setLoading(false);
@@ -28,7 +29,6 @@ const useStocks = (tickers: string[]) => {
       )
         .then((result) => {
           setStocks(result);
-          setLoading(false);
         })
         .catch((err) => {
           if (err instanceof Error && err.message === "Failed to fetch") {
@@ -38,8 +38,8 @@ const useStocks = (tickers: string[]) => {
           } else {
             setError("Ett okänt fel inträffade.");
           }
-          setLoading(false);
-        });
+        })
+        .finally(() => setLoading(false));
     };
 
     fetchStocks();
