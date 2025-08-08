@@ -40,7 +40,7 @@ const ExploreStocks = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Utforska aktier</h1>
+      <h1 className={styles.title}>Utforska aktier</h1>
       {loading && (
         <div className={styles.spinnerContainer}>
           <Spinner />

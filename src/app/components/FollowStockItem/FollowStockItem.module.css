@@ -10,18 +10,20 @@
 }
 
 .followBtnContainer {
-  width: 4.5rem;
+  width: 6rem;
   display: flex;
   justify-content: space-around;
   background-color: #141515;
   color: #fff;
-  padding: 0.3rem;
+  padding: 0.5rem;
   align-items: center;
   border: 1.5px solid #2f3131;
   border-radius: 0.2rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-#plusIcon {
-  width: 0.5rem;
-  height: 0.5rem;
+#icon {
+  width: 0.8rem;
+  height: 0.8rem;
 }
