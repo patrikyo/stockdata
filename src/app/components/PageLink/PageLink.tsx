@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./PageLink.module.css";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getChangeClass } from "@/app/utils/classNameUtil";
 
 const PageLink: React.FC<pageLinkProps> = ({
   href,
@@ -10,16 +11,6 @@ const PageLink: React.FC<pageLinkProps> = ({
   change,
   backLink,
 }) => {
-  const getChangeClass = (str: string | undefined) => {
-    if (!str) return "";
-    if (str.startsWith("+")) {
-      return styles.positiveChange;
-    } else if (str.startsWith("-")) {
-      return styles.negativeChange;
-    }
-    return "";
-  };
-
   return (
     <Link
       href={href}

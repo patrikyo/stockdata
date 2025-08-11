@@ -38,6 +38,14 @@ a {
   text-decoration: none;
 }
 
+.positiveChange {
+  color: #6ff586;
+}
+
+.negativeChange {
+  color: #f34b4b;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
