@@ -1,0 +1,32 @@
+.container {
+  color: #fff;
+  padding: 1.5rem;
+  font-weight: 500;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.stockInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stockPrice {
+  font-size: 3rem;
+}
+
+.stockChangeInfo {
+  font-size: 2rem;
+}
+
+.positiveChange {
+  color: #6ff586;
+}
+
+.negativeChange {
+  color: #e92020;
+}
