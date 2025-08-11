@@ -62,7 +62,7 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
             ) : (
               <div className={styles.stockLinkContainer}>
                 <PageLink
-                  href="/stock-detail"
+                  href={`/stock-detail/${ele.ticker}`}
                   label={ele.name}
                   change={ele.change}
                 />

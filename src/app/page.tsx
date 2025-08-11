@@ -42,7 +42,10 @@ export default function Home() {
           ) : (
             <StockList stockList={stocks} follow={false} />
           )}
-          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
+          <PageLink
+            href="/explore-stocks"
+            label="Utforska fler aktier"
+          />
         </>
       )}
     </div>

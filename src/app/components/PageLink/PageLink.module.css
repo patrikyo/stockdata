@@ -7,8 +7,11 @@
 }
 
 .containerWithoutChange {
-  text-align: center;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .containerWithChange {
@@ -16,6 +19,11 @@
   justify-content: space-between;
 }
 
-.change {
+.positiveChange,
+#backIcon {
   color: #6ff586;
+}
+
+.negativeChange {
+  color: #e92020;
 }

@@ -53,7 +53,7 @@ const ExploreStocks = () => {
           ) : (
             <StockList stockList={names} follow={true} />
           )}
-          <PageLink href="/" label="Tillbaka till Mina aktier" />
+          <PageLink href="/" label="Tillbaka till Mina aktier" backLink={true} />
         </div>
       )}
     </div>
