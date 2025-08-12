@@ -1,8 +1,7 @@
-const getChangeClass = (str: string | undefined) => {
-  if (!str) return "";
-  if (str.startsWith("+")) {
+const getChangeClass = (number: number) => {
+  if (number > 0) {
     return "positiveChange";
-  } else if (str.startsWith("-")) {
+  } else if (number < 0) {
     return "negativeChange";
   }
   return "";
