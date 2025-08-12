@@ -17,14 +17,14 @@ const useStocks = (tickers: string[]) => {
     const fetchStocks = () => {
       Promise.all(
         tickers.map((ticker) => {
-          return fetch(`http://127.0.0.1:5000/api/stock/${ticker}`).then(
-            (response) => {
-              if (!response.ok) {
-                throw new Error("Fel vid hämtning av aktier");
-              }
-              return response.json();
+          return fetch(
+            `http://127.0.0.1:5000/api/stocks/details/${ticker}`
+          ).then((response) => {
+            if (!response.ok) {
+              throw new Error("Fel vid hämtning av aktier");
             }
-          );
+            return response.json();
+          });
         })
       )
         .then((result) => {

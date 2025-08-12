@@ -8,6 +8,8 @@ import PageLink from "@/app/components/PageLink/PageLink";
 import ErrorDisplay from "@/app/components/ErrorDisplay/ErrorDisplay";
 import { useMemo } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
+import { getChangeClass } from "@/app/utils/classNameUtil";
+import { formatSignedNumber } from "@/app/utils/format";
 
 const StockDetail = () => {
   const params = useParams<{ name: string }>();
@@ -17,15 +19,6 @@ const StockDetail = () => {
   const { stocks, error, loading } = useStocks(tickers);
   let [stock] = stocks;
 
-  const getChangeClass = (str: string | undefined) => {
-    if (!str) return "";
-    if (str.startsWith("+")) {
-      return styles.positiveChange;
-    } else if (str.startsWith("-")) {
-      return styles.negativeChange;
-    }
-    return "";
-  };
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{stock?.name}</h1>
@@ -38,11 +31,11 @@ const StockDetail = () => {
               {stock.price} <span>{stock.currency}</span>
             </span>
             <span
-              className={`${styles.stockChangeInfo} ${getChangeClass(
-                stock.change
-              )}`}
+              className={`${styles.stockChangeInfo} ${
+                stock.change && getChangeClass(stock.change)
+              }`}
             >
-              {stock.change}
+              {stock.change && formatSignedNumber(stock.change)}
             </span>
           </div>
           <Sparklines
