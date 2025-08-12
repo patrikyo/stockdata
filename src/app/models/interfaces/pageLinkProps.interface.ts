@@ -1,7 +1,7 @@
 interface pageLinkProps {
   href: string;
   label: string;
-  change?: string;
+  change?: number | undefined;
   backLink?: boolean;
 }
 
