@@ -7,6 +7,8 @@ import PageLink from "./components/PageLink/PageLink";
 import ErrorDisplay from "./components/ErrorDisplay/ErrorDisplay";
 import useStocks from "./hooks/useStocks";
 import Spinner from "./components/Spinner/Spinner";
+import { faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const FOLLOW_KEY = "followedStocks";
 
@@ -38,14 +40,14 @@ export default function Home() {
         <>
           {error && <ErrorDisplay msg={error} />}
           {tickers.length === 0 ? (
-            <p>Du följer inga aktier ännu.</p>
+            <div className={styles.emptyListContainer}>
+              <FontAwesomeIcon icon={faList} id={styles.listIcon} />
+              <p>Du följer inga aktier ännu.</p>
+            </div>
           ) : (
             <StockList stockList={stocks} follow={false} />
           )}
-          <PageLink
-            href="/explore-stocks"
-            label="Utforska fler aktier"
-          />
+          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
         </>
       )}
     </div>
