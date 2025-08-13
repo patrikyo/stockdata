@@ -5,6 +5,7 @@ import FollowStockItemProps from "@/app/models/interfaces/FollowStockItemProps.i
 
 const FollowStockItem: React.FC<FollowStockItemProps> = ({
   name,
+  ticker,
   isFollowed,
   onToggle,
 }) => {
@@ -13,7 +14,7 @@ const FollowStockItem: React.FC<FollowStockItemProps> = ({
       <span>{name}</span>
       <button
         className={styles.followBtnContainer}
-        onClick={() => onToggle(name)}
+        onClick={() => onToggle(ticker)}
       >
         <FontAwesomeIcon
           icon={isFollowed ? faMinus : faPlus}

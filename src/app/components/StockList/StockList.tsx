@@ -28,15 +28,15 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
     }
   }, []);
 
-  const toggleFollow = (stockName: string) => {
+  const toggleFollow = (stockTicker: string) => {
     setFollowedStocks((prev) => {
       let updated;
-      if (prev.includes(stockName)) {
+      if (prev.includes(stockTicker)) {
         // Unfollow
-        updated = prev.filter((name) => name !== stockName);
+        updated = prev.filter((name) => name !== stockTicker);
       } else {
         // Follow
-        updated = [...prev, stockName];
+        updated = [...prev, stockTicker];
       }
 
       // Uppdatera localStorage
@@ -49,13 +49,14 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
   return (
     <ul className={styles.stockListContainer}>
       {stockList.map((ele: Stock) => {
-        const isFollowed = followedStocks.includes(ele.name);
+        const isFollowed = followedStocks.includes(ele.ticker);
 
         return (
-          <li key={ele.name}>
+          <li key={ele.ticker}>
             {follow ? (
               <FollowStockItem
                 name={ele.name}
+                ticker={ele.ticker}
                 isFollowed={isFollowed}
                 onToggle={toggleFollow}
               />
@@ -63,7 +64,7 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
               <div className={styles.stockLinkContainer}>
                 <PageLink
                   href={`/stock-detail/${ele.ticker}`}
-                  label={ele.name}
+                  label={ele.ticker}
                   change={ele.change}
                 />
               </div>

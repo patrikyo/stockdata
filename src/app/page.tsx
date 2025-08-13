@@ -31,7 +31,6 @@ export default function Home() {
   }, []);
 
   const { stocks, error, loading } = useStocks(tickers);
-
   return (
     <div className={styles.container}>
       <h1>Mina aktier</h1>
