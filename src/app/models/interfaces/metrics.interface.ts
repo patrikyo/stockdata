@@ -1,4 +1,4 @@
-interface Metric {
+interface Metrics {
   marketCap: number | "N/A";
   pbRatio: number | "N/A";
   pegRatio: number | "N/A";
@@ -9,4 +9,4 @@ interface Metric {
   shortSelling: string | "N/A";
 }
 
-export default Metric;
+export default Metrics;

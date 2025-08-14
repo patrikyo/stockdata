@@ -2,7 +2,6 @@
 import { useParams } from "next/navigation";
 import styles from "./page.module.css";
 import useStocks from "@/app/hooks/useStocks";
-import Stock from "@/app/models/interfaces/stock.interface";
 import Spinner from "@/app/components/Spinner/Spinner";
 import PageLink from "@/app/components/PageLink/PageLink";
 import ErrorDisplay from "@/app/components/ErrorDisplay/ErrorDisplay";
@@ -10,6 +9,7 @@ import { useMemo } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { getChangeClass } from "@/app/utils/classNameUtil";
 import { formatSignedNumber } from "@/app/utils/format";
+import StockStats from "@/app/components/StockStats/StockStats";
 
 const StockDetail = () => {
   const params = useParams<{ name: string }>();
@@ -47,6 +47,8 @@ const StockDetail = () => {
           >
             <SparklinesLine color="#6ff586" style={{ fill: "none" }} />
           </Sparklines>
+
+          {stock.metrics && <StockStats metrics={stock.metrics} />}
           <PageLink href="/" label="Back to my stocks" backLink={true} />
         </>
       )}

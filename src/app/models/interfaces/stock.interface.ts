@@ -1,4 +1,4 @@
-import Metric from "./metric.interface";
+import Metrics from "./metrics.interface";
 
 interface Stock {
   ticker: string;
@@ -6,7 +6,7 @@ interface Stock {
   change?: number;
   price?: string;
   currency?: string;
-  metric?: Metric;
+  metrics?: Metrics;
 }
 
 export default Stock;

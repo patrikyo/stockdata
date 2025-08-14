@@ -1,0 +1,13 @@
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.listContainer {
+  display: flex;
+  font-weight: 500;
+  gap: 0.5rem;
+}
