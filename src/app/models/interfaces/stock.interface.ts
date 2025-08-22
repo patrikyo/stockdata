@@ -7,6 +7,7 @@ interface Stock {
   price?: string;
   currency?: string;
   metrics?: Metrics;
+  priceHistory: number[];
 }
 
 export default Stock;
