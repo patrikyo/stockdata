@@ -6,7 +6,11 @@ import ErrorDisplayProps from "@/app/models/interfaces/errorDisplayProps.interfa
 const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ msg }) => {
   return (
     <div className={styles.errorContainer}>
-      <FontAwesomeIcon icon={faExclamationTriangle} id={styles.triangleIcon} />
+      <FontAwesomeIcon
+        icon={faExclamationTriangle}
+        id={styles.triangleIcon}
+        aria-hidden="true"
+      />
       <p className={styles.errorMsg}>{msg}</p>
     </div>
   );
