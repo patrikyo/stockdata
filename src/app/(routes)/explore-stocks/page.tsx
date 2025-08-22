@@ -1,60 +1,31 @@
 "use client";
-import { useEffect, useState } from "react";
+import styles from "./page.module.css";
+import Stock from "@/app/models/interfaces/stock.interface";
 import StockList from "@/app/components/StockList/StockList";
 import ErrorDisplay from "@/app/components/ErrorDisplay/ErrorDisplay";
-import Stock from "@/app/models/interfaces/stock.interface";
-import styles from "./page.module.css";
 import PageLink from "@/app/components/PageLink/PageLink";
 import Spinner from "@/app/components/Spinner/Spinner";
+import useFetchStocks from "@/app/hooks/useFetchStocks";
 
 const ExploreStocks = () => {
-  const [names, setNames] = useState<Stock[]>([]);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const { stocks, error, loading } = useFetchStocks();
 
-  useEffect(() => {
-    const fetchStockNames = () => {
-      fetch("http://127.0.0.1:5000/api/stocks/names")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-              "Could not retrieve the list. Please try again later."
-            );
-          }
-          setError(null);
-
-          return response.json();
-        })
-        .then((res) => {
-          setNames(res);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setLoading(false);
-        });
-    };
-
-    fetchStockNames();
-  }, []);
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <Spinner />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
       <h1>Explore stocks</h1>
-      {loading && (
-        <div className="spinner-container">
-          <Spinner />
-        </div>
-      )}
-      {!loading && (
-        <>
-          {error && <ErrorDisplay msg={error} />}
-          {!error && <StockList stockList={names} follow={true} />}
-          <div className={styles.btnContainer}>
-            <PageLink href="/" label="Back to My stocks" backLink={true} />
-          </div>
-        </>
-      )}
+      {error && <ErrorDisplay msg={error} />}
+      {!error && <StockList stockList={stocks} follow={true} />}
+      <div className={styles.btnContainer}>
+        <PageLink href="/" label="Back to My stocks" backLink={true} />
+      </div>
     </div>
   );
 };
