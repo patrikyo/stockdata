@@ -38,16 +38,30 @@ a {
   text-decoration: none;
 }
 
-.positiveChange {
+.positive-change {
   color: #6ff586;
 }
 
-.negativeChange {
+.negative-change {
   color: #f34b4b;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .app-container {
+    max-width: 752px;
+    margin: 0 auto;
   }
 }

@@ -1,8 +1,12 @@
 import Metrics from "@/app/models/interfaces/metrics.interface";
 import StockStatsProps from "@/app/models/interfaces/stockStatsProps.interface";
 import styles from "./StockStats.module.css";
+import {
+  formatMetric,
+  replaceNonAlphabeticWithSpace,
+} from "@/app/utils/format";
 
-const StockStats: React.FC<StockStatsProps> = ({ metrics }) => {
+const StockStats: React.FC<StockStatsProps> = ({ metrics, currency }) => {
   return (
     <div>
       <h2>Metrics</h2>
@@ -11,8 +15,8 @@ const StockStats: React.FC<StockStatsProps> = ({ metrics }) => {
           .filter((key) => metrics[key])
           .map((key) => (
             <div className={styles.listContainer} key={key}>
-              <dt>{key}:</dt>
-              <dd>{metrics[key]}</dd>
+              <dt>{replaceNonAlphabeticWithSpace(key)}:</dt>
+              <dd>{formatMetric(key, metrics[key] as number, currency)}</dd>
             </div>
           ))}
       </dl>
