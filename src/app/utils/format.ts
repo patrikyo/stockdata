@@ -1,5 +1,3 @@
-import { AbstractControl, ValidationErrors } from "@angular/forms";
-
 const formatSignedNumber = (number: number): string => {
   if (number > 0) {
     return `+${number}%`;
