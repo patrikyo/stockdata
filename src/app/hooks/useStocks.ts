@@ -21,7 +21,7 @@ const useStocks = (tickers: string[]) => {
             `http://127.0.0.1:5000/api/stocks/details/${ticker}`
           ).then((response) => {
             if (!response.ok) {
-              throw new Error("Fel vid hämtning av aktier");
+              throw new Error("Failed to retrieve stocks");
             }
             return response.json();
           });
@@ -32,11 +32,11 @@ const useStocks = (tickers: string[]) => {
         })
         .catch((err) => {
           if (err instanceof Error && err.message === "Failed to fetch") {
-            setError("Kunde inte nå servern. Kontrollera att API:et är igång.");
+            setError("Could not reach the server");
           } else if (err instanceof Error) {
             setError(err.message);
           } else {
-            setError("Ett okänt fel inträffade.");
+            setError("An unknown error occurred");
           }
         })
         .finally(() => setLoading(false));

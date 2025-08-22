@@ -19,6 +19,7 @@ const FollowStockItem: React.FC<FollowStockItemProps> = ({
         <FontAwesomeIcon
           icon={isFollowed ? faMinus : faPlus}
           id={styles.icon}
+          aria-hidden="true"
         />
         <span>{isFollowed ? "Unfollow" : "Follow"}</span>
       </button>

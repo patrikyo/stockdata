@@ -1,8 +1,8 @@
 const getChangeClass = (number: number) => {
   if (number > 0) {
-    return "positiveChange";
+    return "positive-change";
   } else if (number < 0) {
-    return "negativeChange";
+    return "negative-change";
   }
   return "";
 };

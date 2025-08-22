@@ -22,10 +22,14 @@ const PageLink: React.FC<pageLinkProps> = ({
       }`}
     >
       {backLink && (
-        <FontAwesomeIcon icon={faChevronLeft} id={styles.backIcon} />
+        <FontAwesomeIcon
+          icon={faChevronLeft}
+          id={styles.backIcon}
+          aria-hidden="true"
+        />
       )}
       <span>{label}</span>
-      {change && (
+      {change !== undefined && (
         <span className={getChangeClass(change)}>
           {formatSignedNumber(change)}
         </span>

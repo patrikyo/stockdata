@@ -33,22 +33,32 @@ export default function Home() {
   const { stocks, error, loading } = useStocks(tickers);
   return (
     <div className={styles.container}>
-      <h1>Mina aktier</h1>
-      <div className={styles.spinnerContainer}>{loading && <Spinner />}</div>
+      <h1 className={styles.title}>My stocks</h1>
+      {loading && (
+        <div className="spinner-container">
+          <Spinner />
+        </div>
+      )}
       {!loading && (
-        <>
+        <div className={styles.contentContainer}>
           {error && <ErrorDisplay msg={error} />}
           {tickers.length === 0 ? (
             <div className={styles.emptyListContainer}>
-              <FontAwesomeIcon icon={faList} id={styles.listIcon} />
-              <p>Du följer inga aktier ännu.</p>
+              <p>You are not following any stocks yet.</p>
+              <FontAwesomeIcon
+                icon={faList}
+                id={styles.listIcon}
+                aria-hidden="true"
+              />
             </div>
           ) : (
-            <StockList stockList={stocks} follow={false} />
+            <div className={styles.listContainer}>
+              <StockList stockList={stocks} follow={false} />
+            </div>
           )}
-          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
-        </>
+        </div>
       )}
+      <PageLink href="/explore-stocks" label="Utforska fler aktier" />
     </div>
   );
 }

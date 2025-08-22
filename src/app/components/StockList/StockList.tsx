@@ -1,10 +1,7 @@
 import Stock from "@/app/models/interfaces/stock.interface";
 import StockListProp from "@/app/models/interfaces/stockListProp.interface";
 import styles from "./StockList.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import PageLink from "../PageLink/PageLink";
 import FollowStockItem from "../FollowStockItem/FollowStockItem";
 

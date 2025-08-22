@@ -18,7 +18,7 @@ const ExploreStocks = () => {
         .then((response) => {
           if (!response.ok) {
             throw new Error(
-              "Det gick inte att hämta listan. Försök igen senare."
+              "Could not retrieve the list. Please try again later."
             );
           }
           setError(null);
@@ -40,21 +40,20 @@ const ExploreStocks = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Utforska aktier</h1>
+      <h1>Explore stocks</h1>
       {loading && (
-        <div className={styles.spinnerContainer}>
+        <div className="spinner-container">
           <Spinner />
         </div>
       )}
       {!loading && (
-        <div>
-          {error ? (
-            <ErrorDisplay msg={error} />
-          ) : (
-            <StockList stockList={names} follow={true} />
-          )}
-          <PageLink href="/" label="Tillbaka till Mina aktier" backLink={true} />
-        </div>
+        <>
+          {error && <ErrorDisplay msg={error} />}
+          {!error && <StockList stockList={names} follow={true} />}
+          <div className={styles.btnContainer}>
+            <PageLink href="/" label="Back to My stocks" backLink={true} />
+          </div>
+        </>
       )}
     </div>
   );

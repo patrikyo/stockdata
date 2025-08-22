@@ -1,12 +1,16 @@
 .container {
   color: #fff;
-  padding: 1.5rem;
+  padding: 1rem;
   font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .title {
-  margin-bottom: 1rem;
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .stockInfoContainer {
@@ -21,4 +25,10 @@
 
 .stockChangeInfo {
   font-size: 2rem;
+}
+
+@media screen and (min-width: 300px) {
+  .container {
+    padding: 1.5rem;
+  }
 }
