@@ -1,0 +1,13 @@
+.stockInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stockPrice {
+  font-size: 3rem;
+}
+
+.stockChangeInfo {
+  font-size: 2rem;
+}

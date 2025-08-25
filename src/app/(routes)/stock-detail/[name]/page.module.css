@@ -13,20 +13,6 @@
   margin-bottom: 1rem;
 }
 
-.stockInfoContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.stockPrice {
-  font-size: 3rem;
-}
-
-.stockChangeInfo {
-  font-size: 2rem;
-}
-
 @media screen and (min-width: 300px) {
   .container {
     padding: 1.5rem;

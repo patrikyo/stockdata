@@ -4,7 +4,7 @@ interface Stock {
   ticker: string;
   name: string;
   change?: number;
-  price?: string;
+  price?: number;
   currency?: string;
   metrics?: Metrics;
   priceHistory: number[];

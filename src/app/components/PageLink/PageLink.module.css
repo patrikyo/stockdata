@@ -4,6 +4,7 @@
   padding: 0.7rem 0.8rem;
   border-radius: 0.3rem;
   font-weight: 500;
+  align-items: center;
 }
 
 .containerWithoutChange {
@@ -25,4 +26,16 @@
 
 .negativeChange {
   color: #f34b4b;
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    height: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    height: 3.5rem;
+  }
 }

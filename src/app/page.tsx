@@ -42,8 +42,8 @@ export default function Home() {
             <StockList stockList={stocks} follow={false} />
           </div>
         )}
+        <PageLink href="/explore-stocks" label="Utforska fler aktier" />
       </div>
-      <PageLink href="/explore-stocks" label="Utforska fler aktier" />
     </div>
   );
 }

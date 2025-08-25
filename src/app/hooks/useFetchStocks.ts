@@ -1,4 +1,3 @@
-// hooks/useFetchStocks.ts
 import { useState, useEffect } from "react";
 import Stock from "@/app/models/interfaces/stock.interface";
 

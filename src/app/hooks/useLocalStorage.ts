@@ -5,6 +5,11 @@ const useLocalStorage = (
   initialValue: string[]
 ): [string[], (value: string[]) => void] => {
   const [value, setValue] = useState<string[]>(() => {
+    // Check if localStorage exists (i.e., if we are on the client side)
+    if (typeof window === "undefined") {
+      return initialValue;
+    }
+
     try {
       const stored = localStorage.getItem(key);
       if (stored) {
@@ -19,6 +24,10 @@ const useLocalStorage = (
   });
 
   useEffect(() => {
+    // Check if localStorage exists (i.e., if we are on the client side)
+    if (typeof window === "undefined") {
+      return;
+    }
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
