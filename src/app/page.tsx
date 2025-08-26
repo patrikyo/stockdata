@@ -40,7 +40,9 @@ export default function Home() {
         ) : (
           <StockList stockList={stocks} follow={false} />
         )}
-        <PageLink href="/explore-stocks" label="Utforska fler aktier" />
+        <div className="linkBtnContainer">
+          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
+        </div>
       </div>
     </div>
   );

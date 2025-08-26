@@ -4,20 +4,22 @@
   padding: 15px;
   border-radius: 0.3rem;
   font-weight: 500;
+  max-width: 100%;
+  font-size: 1.5rem;
+}
+
+.containerWithoutChange,
+.containerWithChange {
+  display: flex;
   align-items: center;
-  max-width: 80%;
 }
 
 .containerWithoutChange {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  align-items: center;
   gap: 0.5rem;
 }
 
 .containerWithChange {
-  display: flex;
   justify-content: space-between;
 }
 
@@ -32,7 +34,7 @@
 @media screen and (min-width: 576px) {
   .container {
     height: 3rem;
-    max-width: 100%;
+    font-size: 1rem;
   }
 }
 

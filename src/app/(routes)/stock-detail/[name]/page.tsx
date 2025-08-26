@@ -43,7 +43,9 @@ const StockDetail = () => {
           )}
         </>
       )}
-      <PageLink href="/" label="Back to my stocks" backLink={true} />
+      <div className="linkBtnContainer">
+        <PageLink href="/" label="Back to my stocks" backLink={true} />
+      </div>
     </div>
   );
 };

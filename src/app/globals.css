@@ -11,7 +11,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 22px;
 }
 
 html,
@@ -51,6 +51,20 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.linkBtnContainer {
+  width: 60%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 375px) {
+  .linkBtnContainer {
+    width: 100%;
+  }
+  html {
+    font-size: 16px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

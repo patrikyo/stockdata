@@ -58,7 +58,7 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
                 onToggle={toggleFollow}
               />
             ) : (
-              <div className={styles.stockLinkContainer}>
+              <div className="linkBtnContainer">
                 <PageLink
                   href={`/stock-detail/${ele.ticker}`}
                   label={ele.ticker}

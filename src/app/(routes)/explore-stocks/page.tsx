@@ -23,7 +23,7 @@ const ExploreStocks = () => {
       <h1>Explore stocks</h1>
       {error && <ErrorDisplay msg={error} />}
       {!error && <StockList stockList={stocks} follow={true} />}
-      <div className={styles.btnContainer}>
+      <div className="linkBtnContainer">
         <PageLink href="/" label="Back to My stocks" backLink={true} />
       </div>
     </div>
