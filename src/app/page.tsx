@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>My stocks</h1>
-      <div className={styles.contentContainer}>
+      <div className={styles.listContainer}>
         {error && <ErrorDisplay msg={error} />}
         {tickers.length === 0 ? (
           <div className={styles.emptyListContainer}>
@@ -38,9 +38,7 @@ export default function Home() {
             />
           </div>
         ) : (
-          <div className={styles.listContainer}>
-            <StockList stockList={stocks} follow={false} />
-          </div>
+          <StockList stockList={stocks} follow={false} />
         )}
         <PageLink href="/explore-stocks" label="Utforska fler aktier" />
       </div>

@@ -11,3 +11,9 @@
 .stockChangeInfo {
   font-size: 2rem;
 }
+
+@media screen and (min-width: 768px) {
+  .stockInfoContainer {
+    gap: 3.5rem;
+  }
+}
