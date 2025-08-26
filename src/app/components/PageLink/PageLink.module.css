@@ -1,10 +1,11 @@
 .container {
   background-color: #141515;
   margin: 0.3rem;
-  padding: 0.7rem 0.8rem;
+  padding: 15px;
   border-radius: 0.3rem;
   font-weight: 500;
   align-items: center;
+  max-width: 80%;
 }
 
 .containerWithoutChange {
@@ -31,6 +32,7 @@
 @media screen and (min-width: 576px) {
   .container {
     height: 3rem;
+    max-width: 100%;
   }
 }
 

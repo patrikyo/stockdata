@@ -31,7 +31,10 @@ const useStocks = (tickers: string[]) => {
           setStocks(result);
         })
         .catch((err) => {
-          if (err instanceof Error && err.message === "Failed to fetch") {
+          if (
+            err instanceof Error &&
+            err.message === "Failed to retrieve stocks"
+          ) {
             setError("Could not reach the server");
           } else if (err instanceof Error) {
             setError(err.message);
