@@ -27,11 +27,11 @@ const StockDetail = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>{stock?.name}</h1>
+      <h1 className="title">{stock?.name}</h1>
 
       {error && <ErrorDisplay msg={error} />}
       {stock && (
-        <>
+        <div className={styles.stockContainer}>
           <StockInfo
             price={stock.price}
             currency={stock.currency}
@@ -41,7 +41,7 @@ const StockDetail = () => {
           {stock.metrics && (
             <StockStats metrics={stock.metrics} currency={stock.currency} />
           )}
-        </>
+        </div>
       )}
       <div className="linkBtnContainer">
         <PageLink href="/" label="Back to my stocks" backLink={true} />

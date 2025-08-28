@@ -8,16 +8,13 @@
   justify-content: space-between;
 }
 
-.title {
-  margin-bottom: 1rem;
-}
-
 .emptyListContainer,
 .listContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .emptyListContainer {

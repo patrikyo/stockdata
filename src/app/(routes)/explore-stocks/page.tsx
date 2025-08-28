@@ -33,7 +33,7 @@ const ExploreStocks = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Explore stocks</h1>
+      <h1 className="titel">Explore stocks</h1>
       {error && <ErrorDisplay msg={error} />}
       {!error && (
         <>

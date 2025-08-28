@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>My stocks</h1>
+      <h1 className="titel">My stocks</h1>
       <div className={styles.listContainer}>
         {error && <ErrorDisplay msg={error} />}
         {tickers.length === 0 ? (

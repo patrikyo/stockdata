@@ -8,9 +8,8 @@
   text-align: center;
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.stockContainer {
+  margin-top: 1rem;
 }
 
 @media screen and (min-width: 300px) {
