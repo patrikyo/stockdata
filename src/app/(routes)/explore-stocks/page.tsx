@@ -36,10 +36,10 @@ const ExploreStocks = () => {
       <h1 className="titel">Explore stocks</h1>
       {error && <ErrorDisplay msg={error} />}
       {!error && (
-        <>
+        <div className={styles.stockListContainer}>
           <Filter onFilterChange={setFilterInput} />
           <StockList stockList={filteredStocks} follow={true} />
-        </>
+        </div>
       )}
       <div className="linkBtnContainer">
         <PageLink href="/" label="Back to My stocks" backLink={true} />
