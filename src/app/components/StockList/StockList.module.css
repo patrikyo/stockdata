@@ -5,9 +5,3 @@
   justify-content: space-around;
   width: 100%;
 }
-
-.stockLinkContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
