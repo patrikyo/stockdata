@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  max-width: 90vw;
+  margin: 0 auto;
 }
 
 .emptyListContainer,
@@ -22,7 +24,7 @@
 }
 
 .listContainer {
-  height: 79vh;
+  height: 80vh;
   justify-content: space-between;
 }
 
@@ -34,6 +36,7 @@
 @media screen and (min-width: 375px) {
   .container {
     padding: 1.5rem;
+    max-width: 100%;
   }
 }
 

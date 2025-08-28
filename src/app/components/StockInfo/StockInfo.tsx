@@ -36,13 +36,7 @@ const StockInfo = ({
             {formatSignedNumber(change)}
           </span>
           {sparklineData.length > 0 && (
-            <Sparklines
-              data={sparklineData}
-              limit={5}
-              width={100}
-              height={35}
-              margin={5}
-            >
+            <Sparklines data={sparklineData} width={100} height={35} margin={5}>
               <SparklinesLine
                 color={getSparklineColor()}
                 style={{ fill: "none" }}
