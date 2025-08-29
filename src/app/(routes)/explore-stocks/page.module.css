@@ -1,19 +1,21 @@
 .container {
   color: #fff;
-  padding: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  max-width: 90vw;
+  max-width: 60vw !important;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .stockListContainer {
-  min-height: 95vh;
   width: 100%;
+  min-height: 80vh;
 }
+
 @media screen and (min-width: 300px) {
   .container {
     padding: 1.5rem;
@@ -22,7 +24,7 @@
 
 @media screen and (min-width: 375px) {
   .container {
-    max-width: 100%;
+    max-width: 100% !important;
   }
 }
 

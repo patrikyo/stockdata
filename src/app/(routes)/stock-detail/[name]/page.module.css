@@ -1,13 +1,13 @@
 .container {
   color: #fff;
-  padding: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   font-weight: 500;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  min-height: 90vh;
-  max-width: 90vw;
+  height: 100vh;
+  max-width: 20vw !important;
   margin: 0 auto;
 }
 
@@ -24,12 +24,13 @@
 @media screen and (min-width: 375px) {
   .container {
     text-align: left;
-    max-width: 100%;
+    max-width: 100% !important;
   }
 }
 
 @media screen and (min-width: 768px) {
   .container {
     padding: 2rem 5rem;
+    height: 80vh;
   }
 }
