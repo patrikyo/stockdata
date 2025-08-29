@@ -8,12 +8,23 @@ import Spinner from "./components/Spinner/Spinner";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useLocalStorage from "./hooks/useLocalStorage";
+import Pagination from "./components/Pagination/Pagination";
+import { useState, useMemo } from "react";
 
 const FOLLOW_KEY = "followedStocks";
+const ITEMS_PER_PAGE = 10;
 
 export default function Home() {
   const [tickers] = useLocalStorage(FOLLOW_KEY, []);
   const { stocks, error, loading } = useStocks(tickers);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(stocks.length / ITEMS_PER_PAGE);
+  const currentStocks = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return stocks.slice(startIndex, endIndex);
+  }, [stocks, currentPage]);
 
   if (loading) {
     return (
@@ -38,10 +49,25 @@ export default function Home() {
             />
           </div>
         ) : (
-          <StockList stockList={stocks} follow={false} />
+          <>
+            <StockList stockList={currentStocks} follow={false} />
+          </>
         )}
+      </div>
+      <div>
+        <div className={styles.paginationContainer}>
+          {stocks.length > 0 && (
+            <div>
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
+            </div>
+          )}
+        </div>
         <div className="linkBtnContainer">
-          <PageLink href="/explore-stocks" label="Utforska fler aktier" />
+          <PageLink href="/explore-stocks" label="Explore more stocks" />
         </div>
       </div>
     </div>

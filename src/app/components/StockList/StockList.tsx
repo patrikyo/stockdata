@@ -1,53 +1,36 @@
+// stockList.tsx
+"use client";
 import Stock from "@/app/models/interfaces/stock.interface";
 import StockListProp from "@/app/models/interfaces/stockListProp.interface";
 import styles from "./StockList.module.css";
-import { useState, useEffect } from "react";
 import PageLink from "../PageLink/PageLink";
 import FollowStockItem from "../FollowStockItem/FollowStockItem";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
 
 const LOCAL_STORAGE_KEY = "followedStocks";
 
 const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
-  const [followedStocks, setFollowedStocks] = useState<string[]>([]);
-
-  // Ladda följda aktier från localStorage när komponenten mountas
-  useEffect(() => {
-    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setFollowedStocks(parsed);
-        }
-      } catch (error) {
-        console.error("Kunde inte läsa följda aktier från localStorage");
-      }
-    }
-  }, []);
+  const [followedStocks, setFollowedStocks] = useLocalStorage(
+    LOCAL_STORAGE_KEY,
+    []
+  );
 
   const toggleFollow = (stockTicker: string) => {
-    setFollowedStocks((prev) => {
-      let updated;
-      if (prev.includes(stockTicker)) {
-        // Unfollow
-        updated = prev.filter((name) => name !== stockTicker);
-      } else {
-        // Follow
-        updated = [...prev, stockTicker];
-      }
-
-      // Uppdatera localStorage
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
-
-      return updated;
-    });
+    if (followedStocks.includes(stockTicker)) {
+      // Unfollow
+      const updated = followedStocks.filter((name) => name !== stockTicker);
+      setFollowedStocks(updated);
+    } else {
+      // Follow
+      const updated = [...followedStocks, stockTicker];
+      setFollowedStocks(updated);
+    }
   };
 
   return (
     <ul className={styles.stockListContainer}>
       {stockList.map((ele: Stock) => {
         const isFollowed = followedStocks.includes(ele.ticker);
-
         return (
           <li key={ele.ticker}>
             {follow ? (
@@ -55,7 +38,7 @@ const StockList: React.FC<StockListProp> = ({ stockList, follow }) => {
                 name={ele.name}
                 ticker={ele.ticker}
                 isFollowed={isFollowed}
-                onToggle={toggleFollow}
+                onToggle={() => toggleFollow(ele.ticker)}
               />
             ) : (
               <div className="linkBtnContainer">
