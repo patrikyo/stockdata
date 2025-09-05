@@ -14,7 +14,7 @@ const useFetchStocks = (): FetchState => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://stockdata-api.onrender.com/api/stocks/names")
+    fetch("https://stockdata-api-rk1o.onrender.com/api/stocks/names")
       .then((response) => {
         if (!response.ok) {
           throw new Error(

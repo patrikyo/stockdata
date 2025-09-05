@@ -1,0 +1,15 @@
+[
+  { "ticker": "VITEC-B.ST", "name": "Vitec Software Group AB (publ)" },
+  { "ticker": "VITR.ST", "name": "Vitrolife AB (publ)" },
+  { "ticker": "VNV.ST", "name": "VNV Global Ltd" },
+  { "ticker": "VOLO.ST", "name": "Volati AB (publ)" },
+  { "ticker": "VOLO-PREF.ST", "name": "Volati AB (publ) Pref" },
+  { "ticker": "VOLV-A.ST", "name": "Volvo AB (publ)" },
+  { "ticker": "VOLV-B.ST", "name": "Volvo AB (publ)" },
+  { "ticker": "VOLCAR-B.ST", "name": "Volvo Car AB (publ)" },
+  { "ticker": "WALL-B.ST", "name": "Wallenstam AB (publ)" },
+  { "ticker": "WIHL.ST", "name": "Wihlborgs Fastigheter AB (publ)" },
+  { "ticker": "XANO-B.ST", "name": "XANO Industri AB (publ)" },
+  { "ticker": "XVIVO.ST", "name": "Xvivo Perfusion AB (publ)" },
+  { "ticker": "YUBICO.ST", "name": "Yubico AB (publ)" }
+]

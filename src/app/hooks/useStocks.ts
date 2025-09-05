@@ -18,7 +18,7 @@ const useStocks = (tickers: string[]) => {
       Promise.all(
         tickers.map((ticker) => {
           return fetch(
-            `https://stockdata-api.onrender.com/api/stocks/details/${ticker}`
+            `https://stockdata-api-rk1o.onrender.com/api/stocks/details/${ticker}`
           ).then((response) => {
             if (!response.ok) {
               throw new Error("Failed to retrieve stocks");
