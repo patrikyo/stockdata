@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import mockNames from "../mocks/names.json";
 import Stock from "@/app/models/interfaces/stock.interface";
 
 interface FetchState {
@@ -13,6 +14,12 @@ const useFetchStocks = (): FetchState => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    /* Mock data for development without API
+    setStocks(mockNames as Stock[]);
+    setLoading(false);
+    setError(null);
+    */
+    //comment out above and uncomment below to use real API
     setLoading(true);
     fetch("https://stockdata-api-rk1o.onrender.com/api/stocks/names")
       .then((response) => {

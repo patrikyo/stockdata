@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Stock from "../models/interfaces/stock.interface";
+import mockDetail from "../mocks/details.json";
 
 const useStocks = (tickers: string[]) => {
   const [stocks, setStocks] = useState<Stock[]>([]);
@@ -7,6 +8,13 @@ const useStocks = (tickers: string[]) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    /* Mock data for development without API
+    setStocks(mockDetail as Stock[]);
+    setLoading(false);
+    setError(null);
+    */
+    //comment out above and uncomment below to use real API
+
     setLoading(true);
     if (tickers.length === 0) {
       setStocks([]);

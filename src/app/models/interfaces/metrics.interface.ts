@@ -1,12 +1,13 @@
 interface Metrics {
-  marketCap: number | "N/A";
-  pbRatio: number | "N/A";
-  pegRatio: number | "N/A";
-  psRatio: number | "N/A";
-  enterpriseValue: number | "N/A";
-  forwardPE: number | "N/A";
-  trailingPE: number | "N/A";
-  shortSelling: string | "N/A";
+  enterprise_value: number;
+  ev_ebitda: number;
+  ev_revenue: number;
+  forward_pe: number;
+  market_cap: number;
+  pb_ratio: number;
+  peg_ratio: number | null;
+  ps_ratio: number;
+  trailing_pe: number;
 }
 
 export default Metrics;
